@@ -1,8 +1,6 @@
 ##Menú de analista de control de gastos
 import json
 
-gastos = list()
-
 def agregar_gasto(lista_de_gasto):
     print("NUEVO GASTO")
     nombre = input("Qué compraste? ").upper()
@@ -81,7 +79,9 @@ def cargar_datos():
         # 3. Si falló porque no existe, retorna una lista vacía []
         # TU CÓDIGO AQUÍ:  
         return []
-       
+    
+gastos = cargar_datos()
+    
 while True:
     print("""
           MENÚ DE CONTROL DE GASTOS
@@ -90,8 +90,7 @@ while True:
           3. BUSCAR GASTO
           4. ELIMINAR GASTO
           5. GUARDAR GASTO
-          6. CARGAR GASTO
-          7. SALIR DEL PROGRAMA
+          6. SALIR DEL PROGRAMA
           """)
     menu=int(input("Ingresa tu opción: "))
     if menu == 1:
@@ -106,8 +105,6 @@ while True:
     elif menu == 5:
         guardar_datos(gastos)
     elif menu == 6:
-        gastos = cargar_datos()
-    elif menu == 7:
         print("Saliendo...")
         break
     else:
